@@ -1,4 +1,5 @@
 
+import 'package:armino/chip2.dart';
 import 'package:flutter/material.dart';
 
 import 'chips.dart';
@@ -83,7 +84,9 @@ class _horizondalState extends State<horizondal> {
           ),
           Container(width: double.infinity,height: 1,color: Colors.grey[800],),
           // Chip(label: Text("hell"))
-          ScrollableMultipleChip()
+          ScrollableMultipleChip(),
+          ScrollableMultipleChip1()
+
         ],
       ),
     );

@@ -9,34 +9,35 @@ class ScrollableMultipleChip extends StatefulWidget {
 class _ScrollableMultipleChipState extends State<ScrollableMultipleChip> {
   List<String> tags = [];
   List<String> options = [
-    'News',
-    'Entertainment',
-    'Politics',
-    'Automotive',
-    'Sports',
-    'Education',
-    'Fashion',
-    'Travel',
-    'Food',
-    'Tech',
-    'Science',
+    'All',
+    'Play Station',
+    'Nintendo',
+    'X-Box',
+    'Pc',
+    'Stream',
+    'Stadia',
   ];
 
   @override
   Widget build(BuildContext context) {
-    return ChipsChoice.multiple(
-      value: tags,
-      onChanged: (val) => setState(() => tags = val),
-      choiceItems: C2Choice.listFrom<String, String>(
-        source: options,
-        value: (i, v) => v,
-        label: (i, v) => v,
-      ),
-      choiceStyle: C2ChoiceStyle(
-        showCheckmark: false,
-      ),
-      choiceActiveStyle: C2ChoiceStyle(
-        color: Colors.red,
+    return ChipTheme(
+      data: ChipTheme.of(context).copyWith(backgroundColor: Colors.lightBlue),
+      child: ChipsChoice.multiple(
+        spinnerColor: Colors.indigo,
+        value: tags,
+        onChanged: (val) => setState(() => tags = val),
+        choiceItems: C2Choice.listFrom<String, String>(
+          source: options,
+          value: (i, v) => v,
+          label: (i, v) => v,
+        ),
+        choiceStyle: C2ChoiceStyle(
+          showCheckmark: false,
+        ),
+        choiceActiveStyle: C2ChoiceStyle(
+
+          color: Colors.deepPurple,
+        ),
       ),
     );
   }
