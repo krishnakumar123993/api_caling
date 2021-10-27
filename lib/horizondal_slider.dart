@@ -1,4 +1,4 @@
-import 'package:armino/scroll_chip.dart';
+
 import 'package:flutter/material.dart';
 
 import 'chips.dart';
