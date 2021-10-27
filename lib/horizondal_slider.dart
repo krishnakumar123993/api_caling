@@ -1,4 +1,7 @@
+import 'package:armino/scroll_chip.dart';
 import 'package:flutter/material.dart';
+
+import 'chips.dart';
 
 class horizondal extends StatefulWidget {
   @override
@@ -79,7 +82,8 @@ class _horizondalState extends State<horizondal> {
 
           ),
           Container(width: double.infinity,height: 1,color: Colors.grey[800],),
-          Chip(label: Text("hell"))
+          // Chip(label: Text("hell"))
+          ScrollableMultipleChip()
         ],
       ),
     );
