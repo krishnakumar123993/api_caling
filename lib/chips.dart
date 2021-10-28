@@ -2,21 +2,22 @@ import 'package:chips_choice/chips_choice.dart';
 import 'package:flutter/material.dart';
 
 class ScrollableMultipleChip extends StatefulWidget {
+  List<String> labels;
+
+  ScrollableMultipleChip({this.labels = const []});
+
   @override
   _ScrollableMultipleChipState createState() => _ScrollableMultipleChipState();
 }
 
 class _ScrollableMultipleChipState extends State<ScrollableMultipleChip> {
   List<String> tags = [];
-  List<String> options = [
-    'All',
-    'Play Station',
-    'Nintendo',
-    'X-Box',
-    'Pc',
-    'Stream',
-    'Stadia',
-  ];
+  List<String> options = [];
+
+  @override
+  void initState() {
+    options = widget.labels;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,6 @@ class _ScrollableMultipleChipState extends State<ScrollableMultipleChip> {
           showCheckmark: false,
         ),
         choiceActiveStyle: C2ChoiceStyle(
-
           color: Colors.deepPurple,
         ),
       ),

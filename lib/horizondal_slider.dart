@@ -1,93 +1,91 @@
-
 import 'package:armino/chip2.dart';
+import 'package:armino/scroll_chip.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'big_card.dart';
 import 'chips.dart';
 
-class horizondal extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
   _horizondalState createState() => _horizondalState();
 }
 
-class _horizondalState extends State<horizondal> {
+class _horizondalState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(5, 11, 24, 100),
-      body: Column( mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.1)),
-              // margin: const EdgeInsets.symmetric(horizontal:.0),
-              padding: EdgeInsets.all(10),
-              height: 325.0,
-              child: GridView.builder(
-                physics: ScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: 2/2.6,
-                  crossAxisCount: 1,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                ),
-                scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.all(40),
-                itemCount: 2,
-                itemBuilder: (BuildContext, intex) {
-                  return Container(
-                    child: Stack(
-                      alignment: Alignment.bottomCenter,
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(15.0),
-                          child: Image.network(
-                            "https://www.playstationlifestyle.net/assets/uploads/2021/10/Riders-Republic-1280x720.png",
-                            fit: BoxFit.cover,
-                            width: 280,
-                            height: 230,
-                          ),
-                        ),
-                        Container(
-                          height: 50,
-                          width: 280,
-                          alignment: Alignment.centerLeft,
-                          padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "For Cry",
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w800,
-                                    fontSize: 20),
-                              ),
-                              Icon(
-                                Icons.favorite_border,
-                                color: Colors.deepPurple,
-                                size: 30,
-                              )
-                            ],
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius:
-                                BorderRadius.vertical(bottom: Radius.circular(15)),
-                            color: Colors.blueGrey[900],
-                          ),
-                        )
-                      ],
-                    ),
-                  );
-                },
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              width: double.infinity,
+              height: 1,
+              color: Colors.grey[800],
+            ),
+            Container(margin: EdgeInsets.only(left: 25,top: 20),
+              width: double.infinity,
+              child: Text(
+                "Popular",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold),
               ),
+            ),
+            ScrollChip(),
+            Container(
+              width: double.infinity,
+              height: 1,
+              color: Colors.grey[800],
+            ),
+            // Chip(label: Text("hell"))
+            ScrollableMultipleChip(
+              labels: [
+                'All',
+                'Play Station',
+                'Nintendo',
+                'X-Box',
+                'Pc',
+                'Stream',
+                'Stadia',
+              ],
+            ),
+            SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: ScrollableMultipleChip1()),
+            // ScrollChip(direction: Axis.vertical,gapRatio: 1.5/1,),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 25),
+              width: double.infinity,
+              child: Text(
+                "Popular",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                bigcard(title: "ForCry 6",optionNames: ["12 feb 2021","Action","Adventure"],),
+                bigcard(title: "Riders Republic",imageUrl: "https://upload.wikimedia.org/wikipedia/en/8/8d/Riders_Republic_cover_art.jpg",optionNames: ["12 feb 2021","Action","Adventure"],),
+                bigcard(title: "ForCry 6",optionNames: ["12 feb 2021","Action","Adventure"],),
+                bigcard(title: "Riders Republic",imageUrl: "https://upload.wikimedia.org/wikipedia/en/8/8d/Riders_Republic_cover_art.jpg",optionNames: ["12 feb 2021","Action","Adventure"],),
 
-          ),
-          Container(width: double.infinity,height: 1,color: Colors.grey[800],),
-          // Chip(label: Text("hell"))
-          ScrollableMultipleChip(),
-          ScrollableMultipleChip1()
-
-        ],
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
