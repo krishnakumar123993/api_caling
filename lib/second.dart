@@ -47,9 +47,9 @@ class _secondState extends State<second> {
           leading: Container(
             padding: EdgeInsets.all(8),
             child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(40)),
+              borderRadius: BorderRadius.all(Radius.circular(20)),
               child: Image.network(
-                "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWVuJTIwcG9ydHJhaXR8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80",
+                "https://www.diethelmtravel.com/wp-content/uploads/2016/04/bill-gates-wealthiest-person.jpg",
                 fit: BoxFit.cover,
               ),
             ),
